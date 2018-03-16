@@ -15,11 +15,15 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
+    this.load.plugin('AdvancedTiming', 'build/AdvancedTiming.js');
     this.load.image('logo', 'assets/logo.png');
 }
 
 function create ()
 {
+    this.sys.install('AdvancedTiming');
+    window.AdvancedTiming.prototype.test("me");
+
     var logo = this.add.image(400, 150, 'logo');
 
     this.tweens.add({
