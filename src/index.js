@@ -21,8 +21,11 @@ function preload ()
 
 function create ()
 {
+    console.log("create");
     this.sys.install('AdvancedTiming');
-    AdvancedTiming.prototype.test("Static");
+
+    // 初期化。引数はAdvancedTiming.MODE_???で定義
+    this.sys.advancedTiming.init();
 
     var logo = this.add.image(400, 150, 'logo');
 
