@@ -22,7 +22,7 @@ function preload ()
 function create ()
 {
     this.sys.install('AdvancedTiming');
-    window.AdvancedTiming.prototype.test("me");
+    AdvancedTiming.prototype.test("Static");
 
     var logo = this.add.image(400, 150, 'logo');
 
