@@ -131,6 +131,7 @@
         this.add.tween(emitter).to({
           emitX: world.width
         }, 2000, Phaser.Easing.Sinusoidal.InOut, true, 0, -1, true);
+
         this.gui = new dat.GUI({
           width: 320
         });
