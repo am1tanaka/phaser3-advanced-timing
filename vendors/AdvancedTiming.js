@@ -94,6 +94,8 @@ AdvancedTiming.prototype = {
 
     init: function(options) {
         var game, mode;
+        console.log("init");
+        this.game = this.systems;       // this.gameが移行したのでthis.systemsを設定
         game = this.systems;
         game.time.advancedTiming = true;
         /*
@@ -105,8 +107,8 @@ AdvancedTiming.prototype = {
         this.group = game.add.group(); // game.make.group(null, "advancedTimingPlugin", true);
         this.position = new Phaser.Geom.Point;
         this.renderType = this.constructor.renderTypes[game.config.renderType];
-        /*
         this.reset();
+        /*
         game.debug.gameInfo = this.debugGameInfo.bind(this);
         game.debug.gameTimeInfo = this.debugGameTimeInfo.bind(this);
         */
@@ -247,6 +249,27 @@ AdvancedTiming.prototype = {
         this.shutdown();
 
         this.scene = undefined;
+    },
+
+    reset: function(fpsMin, fpsMax, msMin, msMax) {
+      var time;
+      if (fpsMin == null) {
+        fpsMin = Infinity;
+      }
+      if (fpsMax == null) {
+        fpsMax = 0;
+      }
+      if (msMin == null) {
+        msMin = Infinity;
+      }
+      if (msMax == null) {
+        msMax = 0;
+      }
+      time = this.game.time;
+      time.fpsMin = fpsMin;
+      time.fpsMax = fpsMax;
+      time.msMin = msMin;
+      time.msMax = msMax;
     }
 
 };
