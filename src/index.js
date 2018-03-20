@@ -19,7 +19,7 @@ var SECOND = 1000;
 var emitterGui = function(emitter, gui) {
   gui.add(emitter, "_flowQuantity", 0, 100, 5);
   gui.add(emitter, "frequency", 0, 1 * SECOND, 50);
-  gui.add(emitter, "_lifespan", 0, 10 * SECOND, 100);
+  gui.add(emitter, "_lifespan", 0, 5 * SECOND, 100);
   gui.add(emitter, "maxParticles");
 
   gui.add(emitter, "on");
@@ -37,7 +37,7 @@ function debugTexts(delta) {
 
 function preload ()
 {
-    this.load.plugin('AdvancedTiming', 'build/AdvancedTiming.js');
+    //this.load.plugin('AdvancedTiming', 'build/AdvancedTiming.js');
 
     //this.load.baseURL = "https://examples.phaser.io/assets/";
     this.load.crossOrigin = "anonymous";
@@ -48,16 +48,16 @@ function preload ()
 function create ()
 {
     var BUNNY_COUNT = 1e4;
-    var BUNNY_LIFESPAN = 3000;
+    var BUNNY_LIFESPAN = 5000;
     var BUNNY_INTERVAL = 100;
     var BUNNIES_PER_EMIT = 10;
     var BUNNY_GRAVITY = 200;
     var BUNNY_SPEED = {min: -100, max:100};
 
-    this.sys.install('AdvancedTiming');
+    //this.sys.install('AdvancedTiming');
 
     // 初期化。引数はAdvancedTiming.MODE_???で定義
-    this.sys.advancedTiming.init();
+    //this.sys.advancedTiming.init();
 
     console.log("create");
 
@@ -111,6 +111,7 @@ function create ()
         speed: BUNNY_SPEED,
         bounce: 1,
         bounds: {x: 0, y: 0, width: config.width, height: config.height},
+        rotate: {min: -720, max: 720},
     });
     // パラメーターを設定
     emitter._flowQuantity = emitter.quantity.propertyValue;
