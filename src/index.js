@@ -17,7 +17,7 @@ var SECOND = 1000;
 
 /** emitterに関するパラメーター*/
 var emitterGui = function(emitter, gui) {
-  gui.add(emitter, "_flowQuantity", 0, 100, 5);
+  gui.add(emitter, "_flowQuantity", 0, 100, 1);
   gui.add(emitter, "frequency", 0, 1 * SECOND, 50);
   gui.add(emitter, "_lifespan", 0, 5 * SECOND, 100);
   gui.add(emitter, "maxParticles");
